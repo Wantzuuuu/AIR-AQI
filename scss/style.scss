@@ -1,0 +1,644 @@
+*{
+    box-sizing: border-box;
+}
+$success-color:#13cd13;
+$primary-color:#007bff;
+$soso-primary:#b6b6b6;
+$warning-color:#ffc107;
+$danger-color:#dc3545;
+$notfriendly-color:#ff6f00;
+$data-background:rgba(0,0,0,0.5);
+$colors:(
+    success:#13cd13,
+    primary:#007bff,
+    soso:#e2dfdf,
+    warning:#ffc107,
+    danger:#dc3545,
+    notfriendly:#ff6f00,
+);
+$g-colors:(
+    success:linear-gradient(135deg, #FFFFFF 0%, #13cd13 50%, #13cd13 100%),
+    primary:linear-gradient(135deg, #FFFFFF 0%, #007bff 50%, #007bff 100%),
+    soso:linear-gradient(135deg, #FFFFFF 0%, black 50%, black 100%),
+    warning:linear-gradient(135deg, #FFFFFF 0%, #ffbf00 50%, #ffbf00 100%),
+    danger:linear-gradient(135deg, #FFFFFF 0%, #dc3545 50%, #dc3545 100%),
+    notfriendly:linear-gradient(135deg, #FFFFFF 0%, #ff8400 50%, #ff8400 100%),
+);
+
+
+
+@each $name ,$value in $g-colors{
+    .g-bg-#{$name} {
+        background:$value
+    }
+}
+@each $name, $value in $colors {
+   
+    .bg-#{$name} {
+        background-color:$value
+    }
+    .border-#{$name} {
+        border: 10px solid $value
+    }
+    .text-#{$name} {
+        color:$value
+    }
+}
+
+.bg-cover{
+    background-size:cover;
+    background-position:center center;
+}
+.ml-auto{
+    margin-left:auto;
+}
+body{
+    margin:0;
+    position: relative;
+    background-image: url("https://images.unsplash.com/photo-1532516993453-addb6c882c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1866&q=80");
+}
+.navbar{
+    position: fixed;
+    top:0;
+    left:0;
+    right:0;
+    z-index:100;
+    padding:10px 70px;
+    display:flex;
+    align-items:center;
+    background-color:#23232c;
+    color:white;
+    h2{
+        margin:0;
+    }
+}
+.input-group{
+    // padding:10px;
+    width:400px;
+    height:50px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 32px;
+    overflow: hidden;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    input{
+        width:70%;
+        height:60px;
+        border:none;
+        outline: none;
+        background:none;
+        color:white;
+        font-size:20px;
+        text-align:center;
+    }
+    select{
+        width:70%;
+        height:60px;
+        border:none;
+        outline: none;
+        background:none;
+        color:white;
+        font-size:20px;
+        text-align:center;
+    }
+    button{
+        width:20%;
+        height:45px;
+        padding:0;
+        background:none;
+        border:none;
+        border-radius: 46px;
+        color:white;
+        font-size:20px;
+        outline: none;
+        &:hover{
+            background-color:white;
+            color:black;
+        }
+    }
+}
+.mobile-input-group{
+    display:none;
+    width:100%;
+    height:50px;
+    background-color: rgba(0,0,0,0.6);
+    border-radius: 32px;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+    select{
+        width:50%;
+        height:60px;
+        border:none;
+        outline: none;
+        background:none;
+        color:white;
+        font-size:20px;
+        text-align:center;
+    }
+}
+.index-bg{
+    position: fixed;
+    z-index:-1;
+    top:0;
+    left:0; 
+    right:0;
+    bottom:0;
+    width:100%;
+    // height:100vh;
+    background-image:url('https://images.unsplash.com/photo-1532516993453-addb6c882c42?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1866&q=80');
+}
+.wrap{
+    padding:89px 0;
+    margin:0 auto;
+    position: relative;
+    top:0;
+    right:0;
+    left:0;
+    bottom:0;
+    width:1280px;
+    // background-color:rgba(128, 128, 128,.3);
+    .w-100{
+        width:100%;
+        margin-top:250px;
+        margin-bottom:100px;
+        display: flex;
+        justify-content: center;
+    }
+}  
+.content-block{
+    width:100%;
+    display:flex;
+    flex-wrap:wrap;
+    justify-content: space-between;
+    .county-data{
+        position:sticky;
+        position:-webkit-sticky;
+        z-index:10;
+        top:89px;
+        width:60%;
+        height:690px;
+        // background-color:$data-background;
+        .focus-county-section{
+            margin-bottom:15px;
+            width:100%;
+            height:450px;
+            background-color:$data-background;
+            padding:30px 40px;
+            color:white;
+            h5{
+                margin:5px 5px;
+            }
+            .select-group{
+                display:flex;
+                justify-content:space-between;
+                align-items:center;
+                h1{
+                    margin:5px 0;
+                }
+                select{
+                    height:40px;
+                    width:178px;
+                    border:1px solid white;
+                    outline: none;
+                    background:none;
+                    color:white;
+                    font-size:16px;
+                    text-align:center;
+                }
+            }
+          
+            .date{
+                margin:5px 0;
+            }
+            .data-group{
+                margin-top:15px;
+                width:100%;
+                display:flex;
+                flex-wrap:wrap;
+                justify-content: space-around;
+                .data{
+                    position: relative;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content:center;
+                    width:31%;
+                    height:217px;
+                    .pm-data-title{
+                            position:absolute;
+                            z-index:1;
+                            bottom:-68px;
+                            left:50px;
+                            font-size:28px;
+                            font-weight:900;
+                    }
+                    .aqi-data-title{
+                        position:absolute;
+                        z-index:1;
+                        bottom:-65px;
+                        left:30px;
+                        font-size:24px;
+                        font-weight:900;
+                    }
+                    .num{
+                        font-size:44px;
+                        font-weight:800;
+                    }
+                    .air-state{
+                        text-align:center
+                    }
+                    h6{
+                        font-size:20px;
+                    }
+                }
+            }
+        }
+        .count-county-section{
+            background-color: rgba(0,0,0,0.5);
+            color:white;
+            .count-group{
+                width:100%;
+                height:225px;
+                display:flex;
+                justify-content: center;
+                width:100%;
+                .count-data{
+                    width:30%;
+                    height:100%;
+                    display:flex;
+                    align-items: center;
+                    justify-content: center;
+                    .num{
+                        text-align:center;
+                        font-size: 72px;
+                        font-weight: 800;
+                    }
+                    .title{
+                        font-size: 28px;
+                    }
+                }
+            }
+        }
+    }
+    .county-card-section{
+        width:35%;
+    }
+}
+.card-wrap{
+    width:100%;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    .item{
+        overflow: hidden;
+        position:relative;
+        margin-bottom:52px;
+        padding:5px 5px;
+        // width:32.333%;
+        width:100%; 
+        height:445px;
+        // height:601px;
+        border-radius: 100%;
+        // border-radius: 5px;
+        // background-color:rgba(0,0,0,0.8);
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        transform: rotate(0deg);
+       
+        &:after{
+            content:"";
+            position: absolute;
+            z-index:1;
+            top:12px;
+            left:12px;
+            right:12px;
+            bottom:12px;
+            border-radius: 100%;
+            // background-color:rgb(10, 10, 11);
+            background-color:#2e303b;
+        }
+        .bg-block{
+            position:absolute;
+            top:0;
+            left:0;
+            right:0;
+            bottom:0;
+            border-radius: 100%;
+            transform: rotate(0deg);
+            transition:transform .8s ease;
+            // animation-name: move;
+            // animation-duration:1.5s;
+            // animation-iteration-count:infinite;
+        }
+        .item-box{
+            position:relative;
+            z-index:2;
+            width:47%;
+            img{
+                width:100%;
+                height:180px;
+                border-radius: 100%;
+            }
+            .item-content{
+                h6{
+                    margin:10px 0;
+                    font-size:24px;
+                    text-align:center;
+                    color:rgb(235, 226, 226);
+                    font-weight:900;
+                    border-bottom:1px solid grey;
+                    a{
+                        color:white;
+                    } 
+                }
+                .text-group{
+                    text-align:center;
+                    color:white;
+                    .data{
+                        margin-bottom:5px;
+                    }
+                    .date{
+                        margin-top:10px;
+                    }
+                }
+            }
+        }
+        &:hover{
+            .bg-block{
+                transform: rotate(360deg);
+            }
+        }
+    }
+}
+@media(max-width:768px){
+    .navbar{
+        padding:10px 10px;
+        height:60px;
+        justify-content: center;
+        // .brand{
+        //     width:100%;
+        // }
+    }
+    .input-group{
+        display:none;
+    }
+    .mobile-input-group{
+        display:flex;
+        margin:0 0 40px 0;
+    }
+    .wrap{
+        padding:66px 0;
+        width:95%;
+    }
+    .content-block{
+        // justify-content: center;
+
+        .county-data{
+            z-index:10;
+            top:-56vh;
+            width:46%;
+            height:150vh;
+            .focus-county-section{
+                margin-bottom:15px;
+                width:100%;
+                height:auto;
+                h5{
+                    margin:5px 5px;
+                }
+                .select-group{
+                    flex-direction:column;
+                    h1{
+                        margin:15px 0;
+                    }
+                    select{
+                        width:215px;
+                    }
+                }
+              
+                .date{
+                    margin:15px 0;
+                    text-align:center;
+                }
+                .data-group{
+                    .data{
+                        margin-bottom:100px;
+                        width:84%;
+                        height:217px;
+                        .pm-data-title{
+                            position:absolute;
+                            z-index:1;
+                            bottom:-75px;
+                            left:47px;
+                            font-size:33px;
+                            font-weight:900;
+                        }
+                        .aqi-data-title{
+                            position:absolute;
+                            z-index:1;
+                            bottom:-73px;
+                            left:26px;
+                            // font-size:24px;
+                            font-weight:900;
+                        }
+                        .num{
+                            font-size:44px;
+                            font-weight:800;
+                        }
+                        .air-state{
+                            text-align:center;
+                            font-size:24px;
+                        }
+                        h6{
+                            font-size:20px;
+                        }
+                    }
+                }
+            }
+            .count-county-section{
+                .count-group{
+                    height:auto;
+                    flex-wrap:wrap;
+                    .count-data{
+                        width:80%;
+                        height:100%;
+                        margin:40px 0;
+                        .num{
+                            text-align:center;
+                            font-size: 72px;
+                            font-weight: 800;
+                        }
+                        .title{
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+        .county-card-section{
+            // margin-top:30px;
+            position:relative;
+            width:50%;
+        }
+    }
+    .card-wrap{
+        .item{
+            height:364px;
+            .item-box{
+                width:50%;
+                img{
+                    height:152px;
+                }
+                .item-content{
+                    h6{
+                        margin:8px 0;
+                    }
+                    .text-group{
+                        .date{
+                            display:none;
+                            margin-top:10px;
+                        } 
+                    }
+                }
+            }
+        }
+    }
+}
+@media(max-width:576px){
+    .input-group{
+        display:none;
+    }
+    .mobile-input-group{
+        margin:50px 0 50px 0;
+    }
+    .wrap{
+        width:95%;
+    }
+    .content-block{
+        justify-content: center;
+
+        .county-data{
+            position:relative;
+            z-index:10;
+            top:0px;
+            width:100%;
+            height:auto;
+            .focus-county-section{
+                margin-bottom:15px;
+                width:100%;
+                height:auto;
+                h5{
+                    margin:5px 5px;
+                }
+                .select-group{
+                    flex-direction:column;
+                    h1{
+                        margin:15px 0;
+                    }
+                    select{
+                        width:215px;
+                    }
+                }
+              
+                .date{
+                    margin:15px 0;
+                    text-align:center;
+                }
+                .data-group{
+                    .data{
+                        margin-bottom:100px;
+                        width:84%;
+                        height:217px;
+                        .pm-data-title{
+                            position:absolute;
+                            z-index:1;
+                            bottom:-75px;
+                            left:53px;
+                            font-size:33px;
+                            font-weight:900;
+                        }
+                        .aqi-data-title{
+                            position:absolute;
+                            z-index:1;
+                            bottom:-73px;
+                            left:28px;
+                            font-size:27px;
+                            font-weight:900;
+                        }
+                        .num{
+                            font-size:44px;
+                            font-weight:800;
+                        }
+                        .air-state{
+                            text-align:center;
+                            font-size:24px;
+                        }
+                        h6{
+                            font-size:20px;
+                        }
+                    }
+                }
+            }
+            .count-county-section{
+                .count-group{
+                    height:auto;
+                    flex-wrap:wrap;
+                    .count-data{
+                        width:80%;
+                        height:100%;
+                        margin:40px 0;
+                        .num{
+                            text-align:center;
+                            font-size: 72px;
+                            font-weight: 800;
+                        }
+                        .title{
+                            font-size: 28px;
+                        }
+                    }
+                }
+            }
+        }
+        .county-card-section{
+            position:relative;
+            width:100%;
+        }
+    }
+    .card-wrap{
+        .item{
+            height:377px;
+            .item-box{
+                width:50%;
+                img{
+                    height:148px;
+                }
+                .item-content{
+                    h6{
+                        margin:8px 0;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes move{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+.footer{
+    position: relative;
+    padding:15px 0;
+    width:100%;
+    height:60px;
+    line-height:30px;
+    background-color:#23232c;
+    color:white;
+    text-align:center;
+} 

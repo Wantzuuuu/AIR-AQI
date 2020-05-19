@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/style.css">
+    <!-- fontawesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="navbar">
+            <div class="brand">
+                <h2>空氣品質監測站</h2>
+            </div>
+            <div class="input-group ml-auto">
+                <select name="" id="" v-model="select">
+                    <option value="">--- 請選擇城市 ---</option>
+                    <option v-for="(i,k) in county" :value="i" :key="k">{{i}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="index-bg bg-cover">
+        </div>
+        <div class="wrap">
+            <div class="content-block">
+                <div class="county-data">
+                    <div class="focus-county-section">
+                        <h5>關注城市</h5>
+                        <div class="select-group">
+                            <h1>{{renderFocusCounty.County}}-{{renderFocusCounty.SiteName}}</h1>
+                            <select v-model="focusCounty" name="" id="">
+                                <option value="">請選擇關注城市</option>
+                                <option v-for="(i,k) in data" :value="i.SiteName" :key="k">
+                                    {{i.County}}----{{i.SiteName}}</option>
+                            </select>
+                        </div>
+                        <h4 class="date">{{renderFocusCounty.PublishTime}}</h4>
+                        <div class="data-group">
+                            <div class="data border-soso">
+                                <div class="pm-data-title">
+                                    <div>pm2.5</div>
+                                </div>
+                                <div>
+                                    <div class="num">{{renderFocusCounty["PM2.5"]}}</div>
+                                </div>
+                            </div>
+                            <div class="data" :class="fucusState">
+                                <div class="aqi-data-title">
+                                    <div>空氣品質AQI</div>
+                                </div>
+                                <div>
+                                    <div class="num">{{renderFocusCounty.AQI}}</div>
+                                    <div class="air-state">{{renderFocusCounty.Status}}</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="count-county-section">
+                        <div class="count-group">
+                            <div class="count-data">
+                                <div>
+                                    <div class="num">{{stateNiceCount}}</div>
+                                    <div class="title">空氣良好城市</div>
+                                </div>
+                            </div>
+                            <div class="count-data">
+                                <div>
+                                    <div class="num">{{stateSosoCount}}</div>
+                                    <div class="title">空氣普通城市</div>
+                                </div>
+                            </div>
+                            <div class="count-data">
+                                <div>
+                                    <div class="num">{{stateBadCount}}</div>
+                                    <div class="title">空氣不良城市</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="county-card-section ">
+                    <div class="mobile-input-group">
+                        <select name="" id="" v-model="select">
+                            <option value="">--- 請選擇城市 ---</option>
+                            <option v-for="(i,k) in county" :value="i" :key="k">{{i}}</option>
+                        </select>
+                    </div>
+                    <div class="card-wrap">
+                        <card v-for="(i,k) in  filterData" :person="i" :key="k" :img="countyImg"></card>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            資料來源 : 環保署空氣品質監測網
+        </footer>
+    </div>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.6.10/vue.min.js"></script>
+<script src="./js/index.js"></script>
+<script type="text/x-template" id="card">
+    <div class="item">
+        <div class="bg-block" :class="cardState"></div>
+        <div class="item-box">
+                <!-- <div>{{person.img}}</div> -->
+                <!-- <img src="https://images.unsplash.com/photo-1470004914212-05527e49370b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3026&q=80" alt=""> -->
+                <img :src="img[person.img]" alt="">
+                <!-- <div>{{countyImg["person.img"]}}</div> -->
+            <div class="item-content">
+                <h6 class="title">
+                    {{person.County}}-{{person.SiteName}}
+                    <!-- <a href="#">
+                        <i class="far fa-star"></i>
+                    </a> -->
+                </h6>
+                <div class="text-group">
+                    <div class="data">
+                        AOI指數：{{person.AQI}}
+                    </div>
+                    <div class="data">
+                        pm2.5: {{person["PM2.5"]}}
+                    </div>
+                    <div class="data">
+                        狀態：{{person.Status}}
+                    </div>
+                    <div class="date">
+                        {{person.PublishTime}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</script>
+
+</html>
