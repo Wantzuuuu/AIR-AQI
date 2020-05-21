@@ -3,6 +3,7 @@ var app = new Vue({
     el: '#app',
     data() {
         return {
+            loading: false,
             data: [],
             // focusCounty: "",
             focusCounty: JSON.parse(localStorage.getItem("focusCounty")) || [],
@@ -30,6 +31,7 @@ var app = new Vue({
     methods: {
         getData() {
             const vm = this;
+            vm.loading = true;
             // get api response
             // api https://cors-anywhere.herokuapp.com/http://opendata2.epa.gov.tw/AQI.json
             const api = 'https://cors-anywhere.herokuapp.com/http://opendata2.epa.gov.tw/AQI.json';
@@ -60,6 +62,7 @@ var app = new Vue({
                 // console.log(vm.data);
                 // console.log(vm.siteName);
                 // console.log(vm.focusCountyData);
+                vm.loading = false;
             })
         },
         setLocalStorage(key, array) {
@@ -101,7 +104,7 @@ var app = new Vue({
                     //     }
                     // })
                 })
-                console.log(array);
+                // console.log(array);
                 vm.setLocalStorage("focusCounty", array);
                 return vm.focusCountyData;
             }

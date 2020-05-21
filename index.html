@@ -7,11 +7,33 @@
     <link rel="stylesheet" href="./css/style.css">
     <!-- fontawesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <!-- loader.css -->
+    <link rel="stylesheet" href="./css/loader.css">
     <title>Document</title>
 </head>
 
 <body>
     <div id="app">
+        <!-- cover -->
+        <div :class="{'cover':loading}">
+            <div class="loader">
+                <div class="lds-default">
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                    <div></div>
+                </div>
+            </div>
+        </div>
+        <!-- cover end -->
         <div class="navbar">
             <div class="brand">
                 <h2>空氣品質監測站</h2>
